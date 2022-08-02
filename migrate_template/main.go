@@ -26,5 +26,7 @@ func setupRouter() *gin.Engine {
 	r.PUT("/templates/:id", templateRepo.UpdateTemplate)
 	r.DELETE("/templates/:id", templateRepo.DeleteTemplate)
 
+	r.POST("/sendmail", templateRepo.SendMailTemplate)
+
 	return r
 }

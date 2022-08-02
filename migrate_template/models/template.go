@@ -6,7 +6,7 @@ import (
 
 type Template struct {
 	//gorm.Model
-	ID            uint32 `gorm:"primaryKey;autoIncrement" json:"id"`
+	Id            int    `gorm:"primaryKey;autoIncrement" json:"id"`
 	Template_code string `gorm:"not null" json:"template_code"`
 	Dept_id       string `gorm:" null" json:"dept_id"`
 	Name          string `gorm:" null" json:"name"`
@@ -49,5 +49,14 @@ func UpdateTemplate(db *gorm.DB, Template *Template) (err error) {
 //delete Template
 func DeleteTemplate(db *gorm.DB, Template *Template, id int) (err error) {
 	db.Where("id = ?", id).Delete(Template)
+	return nil
+}
+
+//sendmail Template
+func SendMailTemplate(db *gorm.DB, Template *Template) (err error) {
+	err = db.Create(Template).Error
+	if err != nil {
+		return err
+	}
 	return nil
 }
