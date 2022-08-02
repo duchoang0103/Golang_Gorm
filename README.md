@@ -6,7 +6,10 @@
 4. kiểm tra db với GET http://localhost:8080/templates như hình 2 "pic_getall"
 
 #Phần Sử dụng temple lấy từ DB cho mail được gửi
+
+
 5. api denemail: http://localhost:8080/sendmail
+
 6. EX: body post request:
 {
     "id": 3,
