@@ -9,7 +9,7 @@ type Template struct {
 	ID            uint32 `gorm:"primaryKey;autoIncrement" json:"id"`
 	Template_code string `gorm:"not null" json:"template_code"`
 	Dept_id       string `gorm:" null" json:"dept_id"`
-	Name          string `gorm:: null" json:"name"`
+	Name          string `gorm:" null" json:"name"`
 	Html          string `gorm:" null" json:"html"`
 }
 
