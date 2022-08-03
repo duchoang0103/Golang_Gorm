@@ -15,10 +15,8 @@
     "id": 3,
     "array":
     [
-        {
-            "link": "tthttps://www.w3schools.com",
-            "string": "Visit W3Schools.com!"
-        }
+        {"key": "https://www.w3schools.com"},
+        {"key": "Visit W3Schools.com!"}
     ]
 }
 

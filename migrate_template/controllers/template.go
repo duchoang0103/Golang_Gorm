@@ -106,11 +106,11 @@ func (repository *TemplateRepo) DeleteTemplate(c *gin.Context) {
 
 // Your available domain names can be found here:
 // (https://app.mailgun.com/app/domains)
-var yourDomain string = "******s*andbox1b4f79d8ff50472487ffdd638292d793.mailgun.org" // e.g. mg.yourcompany.com
+var yourDomain string = "***s*andbox1b4f79d8ff50472487ffdd638292d793.mailgun.org" // e.g. mg.yourcompany.com
 
 // You can find the Private API Key in your Account Menu, under "Settings":
 // (https://app.mailgun.com/app/account/security)
-var privateAPIKey string = "******4*7c46f002b5121fb6408d78aab109051-1b3a03f6-07cd747d" //"210edf5ee4c770ebcba833e747bc5eea-1b3a03f6-5e0578d0"
+var privateAPIKey string = "***4*7c46f002b5121fb6408d78aab109051-1b3a03f6-07cd747d" //"210edf5ee4c770ebcba833e747bc5eea-1b3a03f6-5e0578d0"
 
 func (repository *TemplateRepo) SendMailTemplate(c *gin.Context) {
 
@@ -128,8 +128,10 @@ func (repository *TemplateRepo) SendMailTemplate(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}
-	targetstringrequest := mailrequest.Array[0].Targetstring
-	linkrequest := mailrequest.Array[0].Link
+	// targetstringrequest := mailrequest.Array[0].Targetstring
+	// linkrequest := mailrequest.Array[0].Link
+	linkrequest := mailrequest.Array[0].Key
+	targetstringrequest := mailrequest.Array[1].Key
 
 	newstring := strings.Replace(htmldb, "<##link##>", linkrequest, -1)
 	newstring2 := strings.Replace(newstring, "<##string##>", targetstringrequest, -1)
@@ -161,5 +163,5 @@ func (repository *TemplateRepo) SendMailTemplate(c *gin.Context) {
 	}
 	fmt.Printf("ID: %s Resp: %s\n", idt, resp)
 	//////////////////////////
-	c.JSON(http.StatusOK, mailrequest)
+	c.JSON(http.StatusOK, gin.H{"message": "Template sendmail successfully"})
 }
