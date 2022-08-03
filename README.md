@@ -8,7 +8,7 @@
 # Phần Sử dụng temple lấy từ DB cho mail được gửi
 
 
-5. api denemail: http://localhost:8080/sendmail
+5. api để gửi mail: http://localhost:8080/sendmail
 
 6. EX: body post request:
 {
